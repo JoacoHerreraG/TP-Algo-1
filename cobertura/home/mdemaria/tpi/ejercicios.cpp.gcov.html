@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - /home/mdemaria/tpi/ejercicios.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">home/mdemaria/tpi</a> - ejercicios.cpp<span style="font-size: 80%;"> (source / <a href="ejercicios.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryHi">98.1 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-06-10 09:56:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #include &quot;definiciones.h&quot;</a>
+<span class="lineNum">       2 </span>            : #include &quot;ejercicios.h&quot;
+<span class="lineNum">       3 </span>            : #include &quot;auxiliares.h&quot;
+<a name="4"><span class="lineNum">       4 </span>            : </a>
+<span class="lineNum">       5 </span>            : 
+<span class="lineNum">       6 </span><span class="lineCov">         54 : bool esEncuestaValida(eph_h th, eph_i ti) {</span>
+<span class="lineNum">       7 </span><span class="lineCov">         54 :     return esValida(th, ti);</span>
+<span class="lineNum">       8 </span>            : }
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : //Para generar el vector de respuesta, se encuentra su largo correcta para saber hasta cuándo iterar.
+<a name="12"><span class="lineNum">      12 </span>            : </a>
+<span class="lineNum">      13 </span>            : 
+<span class="lineNum">      14 </span><span class="lineCov">         16 : vector&lt;int&gt; histHabitacional(eph_h th, eph_i ti, int region) {</span>
+<span class="lineNum">      15 </span><span class="lineCov">         16 :     vector&lt;int&gt; res = {};</span>
+<span class="lineNum">      16 </span><span class="lineCov">         16 :     int max = maxCantDeAmbientes(th, region);</span>
+<span class="lineNum">      17 </span><span class="lineCov">         75 :     for (int i = 0; i &lt; max; ++i) {</span>
+<span class="lineNum">      18 </span><span class="lineCov">         59 :         int contadorAmbientes = 0;</span>
+<span class="lineNum">      19 </span><span class="lineCov">     202811 :         for (int j = 0; j &lt; th.size(); ++j) {</span>
+<span class="lineNum">      20 </span><span class="lineCov">     202752 :             if (th[j][REGION] == region &amp;&amp; esCasa(th[j]) &amp;&amp; th[j][IV2] == i + 1) {</span>
+<span class="lineNum">      21 </span><span class="lineCov">       2064 :                 contadorAmbientes++;</span>
+<span class="lineNum">      22 </span>            :             }
+<span class="lineNum">      23 </span>            :         }
+<span class="lineNum">      24 </span><span class="lineCov">         59 :         res.push_back(contadorAmbientes);</span>
+<span class="lineNum">      25 </span>            :     }
+<span class="lineNum">      26 </span><span class="lineCov">         16 :     return res;</span>
+<a name="27"><span class="lineNum">      27 </span>            : }</a>
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span><span class="lineCov">         12 : vector&lt;float&gt; laCasaEstaQuedandoChica(eph_h th, eph_i ti) {</span>
+<span class="lineNum">      30 </span><span class="lineCov">         12 :     vector&lt;float&gt; res(CANTIDAD_DE_REGIONES);</span>
+<span class="lineNum">      31 </span><span class="lineCov">         84 :     for (int i = 0; i &lt; CANTIDAD_DE_REGIONES; ++i) {</span>
+<span class="lineNum">      32 </span><span class="lineCov">         72 :         int hogaresHC = cantHogaresValidosConHC(th, ti, i + 1);</span>
+<span class="lineNum">      33 </span><span class="lineCov">         72 :         int hogaresValidos = cantHogaresValidos(th, ti, i + 1);</span>
+<span class="lineNum">      34 </span><span class="lineCov">         72 :         float proporcion = 0;</span>
+<span class="lineNum">      35 </span><span class="lineCov">         72 :         if (hogaresValidos &gt; 0) {</span>
+<span class="lineNum">      36 </span><span class="lineCov">         21 :             proporcion = (float) hogaresHC / (float) hogaresValidos;</span>
+<span class="lineNum">      37 </span>            :         }
+<span class="lineNum">      38 </span><span class="lineCov">         72 :         res[i] = proporcion;</span>
+<span class="lineNum">      39 </span>            :     }
+<span class="lineNum">      40 </span><span class="lineCov">         12 :     return res;</span>
+<a name="41"><span class="lineNum">      41 </span>            : }</a>
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span><span class="lineCov">          9 : bool creceElTeleworkingEnCiudadesGrandes(eph_h t1h, eph_i t1i, eph_h t2h, eph_i t2i) {</span>
+<span class="lineNum">      44 </span><span class="lineCov">          9 :     return (proporcionTeleworking(t1h, t1i) &lt; proporcionTeleworking(t2h, t2i));</span>
+<a name="45"><span class="lineNum">      45 </span>            : }</a>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span><span class="lineCov">          6 : void ordenarRegionYCodusu(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">      48 </span><span class="lineCov">          9 :     while(!estanOrdenadosPorCodusuDeHogarYComponente(ti, th) &amp;&amp; !estanOrdenadosPorRegionYCodusu(th)) {</span>
+<span class="lineNum">      49 </span><span class="lineCov">          3 :         if(!estanOrdenadosPorCodusuDeHogarYComponente(ti, th)) {</span>
+<span class="lineNum">      50 </span><span class="lineCov">          3 :             ordenarIndPorCodDeHog(ti, th);</span>
+<span class="lineNum">      51 </span><span class="lineCov">          3 :             ordenarIndPorComp(ti);</span>
+<span class="lineNum">      52 </span>            :         }
+<span class="lineNum">      53 </span><span class="lineCov">          3 :         if(!estanOrdenadosPorRegionYCodusu(th)){</span>
+<span class="lineNum">      54 </span><span class="lineCov">          3 :             ordenarHogPorReg(th);</span>
+<span class="lineNum">      55 </span><span class="lineCov">          3 :             ordenarHogPorCod(th);</span>
+<span class="lineNum">      56 </span>            :         }
+<span class="lineNum">      57 </span>            :     }
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">          3 : }</span></a>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineCov">         15 : vector&lt;hogar&gt; muestraHomogenea(eph_h th, eph_i ti) {</span>
+<span class="lineNum">      61 </span><span class="lineCov">         30 :     vector&lt;vector&lt;int&gt; &gt; ingresos {};</span>
+<span class="lineNum">      62 </span><span class="lineCov">         15 :     ingresos = listarIngresosDeHogares(th,ti);// Almaceno los ingresos de cada hogar junto con su índice correspondiente.</span>
+<span class="lineNum">      63 </span><span class="lineCov">         15 :     selectionSortEspecial(ingresos);// Ordenamiento de menor a mayor de las tuplas según su sda. componente, el ingreso del hogar correspondiente.</span>
+<span class="lineNum">      64 </span><span class="lineCov">         30 :     vector&lt;int&gt; indicesDeHogares = solMaximalMuestraHomogenea(ingresos); // Generamos un vector que da la respuesta en función de las posiciones de las tuplas en ingresos.</span>
+<span class="lineNum">      65 </span><span class="lineCov">         15 :     vector&lt;hogar&gt; res;</span>
+<span class="lineNum">      66 </span><span class="lineCov">         15 :     if (indicesDeHogares.size()&gt;2){</span>
+<span class="lineNum">      67 </span><span class="lineCov">         72 :         for (int j = 0; j &lt; indicesDeHogares.size(); ++j) { // Recuperamos, para cada posición, el índice de hogar al cual se refería la posición.</span>
+<span class="lineNum">      68 </span><span class="lineCov">         61 :             indicesDeHogares[j] = ingresos[indicesDeHogares[j]][0];</span>
+<span class="lineNum">      69 </span>            :         }
+<span class="lineNum">      70 </span><span class="lineCov">         72 :         for (int i = 0; i &lt;indicesDeHogares.size() ; ++i) { // Ahora podemos generar la respuesta pues tenemos explícitamente los índices.</span>
+<span class="lineNum">      71 </span><span class="lineCov">         61 :             res.push_back(th[indicesDeHogares[i]]);</span>
+<span class="lineNum">      72 </span>            :         }
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span>            :     }
+<span class="lineNum">      75 </span><span class="lineCov">         30 :     return res;</span>
+<a name="76"><span class="lineNum">      76 </span>            : }</a>
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span><span class="lineCov">          6 : void corregirRegion(eph_h &amp;th, eph_i ti) {</span>
+<span class="lineNum">      79 </span><span class="lineCov">          6 :     soloModificaRegionGBAaPampeana(th);</span>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">         12 : float indiceGini(eph_h th, eph_i ti) {</span>
+<span class="lineNum">      83 </span><span class="lineCov">         12 :     float areaIgualdadTotal = 0.5;</span>
+<span class="lineNum">      84 </span><span class="lineCov">         12 :     if(tablaHogaresOrdenadaPorIngresosPerCapita(th, ti)) {</span>
+<span class="lineNum">      85 </span><span class="lineCov">         12 :         return areaObservada(th, ti) / areaIgualdadTotal;</span>
+<a name="86"><span class="lineNum">      86 </span>            :     } else {</a>
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :         return 0;</span>
+<span class="lineNum">      88 </span><span class="lineCov">         39 :     }</span>
+<span class="lineNum">      89 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - /home/mdemaria/tpi/Funciones_TPI.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">home/mdemaria/tpi</a> - Funciones_TPI.cpp<span style="font-size: 80%;"> (source / <a href="Funciones_TPI.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-06-10 09:56:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #include &lt;iostream&gt;</a>
+<span class="lineNum">       2 </span>            : #include &lt;vector&gt;
+<span class="lineNum">       3 </span>            : #include &lt;tuple&gt;
+<span class="lineNum">       4 </span>            : #include &lt;fstream&gt;
+<span class="lineNum">       5 </span>            : #include &lt;math.h&gt;
+<span class="lineNum">       6 </span>            : #include &lt;sstream&gt;
+<span class="lineNum">       7 </span>            : #include &lt;string&gt;
+<span class="lineNum">       8 </span>            : #include &lt;fstream&gt;
+<span class="lineNum">       9 </span>            : #include &lt;ctype.h&gt;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : #include &quot;Funciones_TPI.h&quot;
+<span class="lineNum">      12 </span>            : 
+<a name="13"><span class="lineNum">      13 </span>            : using namespace std;</a>
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span><span class="lineCov">       2479 : bool flotante_valido(float valor_esperado, float valor_recibido, float umbral) {</span>
+<span class="lineNum">      16 </span><span class="lineCov">       2479 :   return abs(valor_esperado - valor_recibido) &lt; umbral;\</span>
+<a name="17"><span class="lineNum">      17 </span>            : }</a>
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span><span class="lineCov">        808 : vector &lt; vector &lt; int &gt; &gt; leerEncuestaIH(string nombreArchivo) {</span>
+<span class="lineNum">      20 </span><span class="lineCov">        808 :   char sep = ','; // separador del csv</span>
+<span class="lineNum">      21 </span><span class="lineCov">       1616 :   ifstream miArchivo;</span>
+<span class="lineNum">      22 </span><span class="lineCov">        808 :   vector &lt; vector &lt; int &gt; &gt; t;</span>
+<span class="lineNum">      23 </span><span class="lineCov">       1616 :   string line=&quot;&quot;;</span>
+<span class="lineNum">      24 </span><span class="lineCov">        808 :   miArchivo.open(nombreArchivo.c_str(), ifstream::in);</span>
+<span class="lineNum">      25 </span><span class="lineCov">        808 :   if ( miArchivo.is_open() ) {</span>
+<span class="lineNum">      26 </span><span class="lineCov">        792 :     /*header:*/getline(miArchivo, line);</span>
+<span class="lineNum">      27 </span><span class="lineCov">   16158700 :     while ( getline(miArchivo, line) ) {</span>
+<span class="lineNum">      28 </span><span class="lineCov">   16157908 :       vector&lt;int&gt; item;</span>
+<span class="lineNum">      29 </span><span class="lineCov">   16157908 :       std::stringstream linestream(line);</span>
+<span class="lineNum">      30 </span><span class="lineCov">   16157908 :       std::string value;</span>
+<span class="lineNum">      31 </span><span class="lineCov">  181846730 :       while ( getline(linestream, value, sep) ) {</span>
+<span class="lineNum">      32 </span><span class="lineCov">   86883888 :         item.push_back(stoi(value));</span>
+<span class="lineNum">      33 </span>            :       }
+<span class="lineNum">      34 </span><span class="lineCov">    8078954 :       t.push_back(item);</span>
+<span class="lineNum">      35 </span>            :     }
+<span class="lineNum">      36 </span><span class="lineCov">        792 :     miArchivo.close();</span>
+<span class="lineNum">      37 </span>            :   } else
+<span class="lineNum">      38 </span><span class="lineCov">         16 :     cout &lt;&lt; &quot;No se pudo abrir el archivo &quot; &lt;&lt; nombreArchivo &lt;&lt; endl;</span>
+<span class="lineNum">      39 </span><span class="lineCov">       1616 :   return t;</span>
+<a name="40"><span class="lineNum">      40 </span>            : }</a>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">        404 : void leerEncuesta ( string filename , eph_h &amp; th, eph_i &amp; ti ){</span>
+<span class="lineNum">      43 </span><span class="lineCov">        808 :   string path = &quot;datos/&quot;;</span>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">        404 :   th = leerEncuestaIH(path+filename+&quot;.th&quot;);</span></a>
+<span class="lineNum">      45 </span><span class="lineCov">        404 :   ti = leerEncuestaIH(path+filename+&quot;.ti&quot;);</span>
+<span class="lineNum">      46 </span><span class="lineCov">        809 : }</span>
+<span class="lineNum">      47 </span>            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

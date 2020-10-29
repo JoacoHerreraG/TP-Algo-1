@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - tpi/codigoTPI_test++/creceElTeleworkingEnCiudadesGrandesTEST.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">tpi/codigoTPI_test++</a> - creceElTeleworkingEnCiudadesGrandesTEST.cpp<span style="font-size: 80%;"> (source / <a href="creceElTeleworkingEnCiudadesGrandesTEST.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-06-24 13:12:43</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #include &quot;../definiciones.h&quot;</a>
+<span class="lineNum">       2 </span>            : #include &quot;../Funciones_TPI.h&quot;
+<span class="lineNum">       3 </span>            : #include &quot;../ejercicios.h&quot;
+<span class="lineNum">       4 </span>            : #include &quot;gtest/gtest.h&quot;
+<span class="lineNum">       5 </span>            : #include &lt;iostream&gt;
+<span class="lineNum">       6 </span>            : #include &lt;string&gt;
+<span class="lineNum">       7 </span>            : 
+<a name="8"><span class="lineNum">       8 </span>            : using namespace std;</a>
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span><span class="lineCov">         10 : TEST(creceElTeleworkingEnCiudadesGrandesTEST, crece) {</span>
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : //                                   +500 Tipo  Lugar para trabajar
+<span class="lineNum">      13 </span>            : //                                     v  v        v
+<span class="lineNum">      14 </span>            :     eph_h t1h = {{334,  2017, 1, 1, 2, 1, 1, 3, 1, 2},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      15 </span>            :                  {960,  2017, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">      16 </span>            :                  {1366, 2017, 1, 2, 5, 1, 3, 3, 2, 1},  // Esta no: Hotel
+<span class="lineNum">      17 </span><span class="lineCov">          4 :                  {1388, 2017, 1, 3, 4, 0, 1, 2, 2, 1}}; // Esta no: menos 500</span>
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span>            : //                                                      Ubicación
+<span class="lineNum">      20 </span>            : //                                                          v
+<span class="lineNum">      21 </span>            :     eph_i t1i = {{334,  1, 2017, 1, 0, 1, 36, 1,  3, 16300, 1},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      22 </span>            :                  {960,  3, 2017, 1, 1, 2, 51, 1,  4, 1280,  1},
+<span class="lineNum">      23 </span>            :                  {1366, 1, 2017, 1, 1, 2, 92, 1,  0, -1,    1},  // Esta no: Hotel
+<span class="lineNum">      24 </span>            :                  {960,  2, 2017, 1, 0, 2, 20, 1,  3, 7000,  1},
+<span class="lineNum">      25 </span>            :                  {960,  1, 2017, 1, 0, 2, 19, 1,  0, 0,     6},
+<span class="lineNum">      26 </span><span class="lineCov">          4 :                  {1388, 1, 2017, 1, 0, 1, 67, 1,  3, 20000, 6}}; // Esta no: menos 500</span>
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : //                                   +500 Tipo  Lugar para trabajar
+<span class="lineNum">      29 </span>            : //                                     v  v        v
+<span class="lineNum">      30 </span>            :     eph_h t2h = {{334,  2018, 1, 1, 2, 1, 1, 3, 1, 2},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      31 </span>            :                  {960,  2018, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">      32 </span>            :                  {1366, 2018, 1, 2, 5, 1, 3, 3, 2, 1},  // Esta no: Hotel
+<span class="lineNum">      33 </span><span class="lineCov">          4 :                  {1388, 2018, 1, 3, 4, 0, 1, 2, 2, 1}}; // Esta no: menos 500</span>
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : //                                                      Ubicación
+<span class="lineNum">      36 </span>            : //                                                          v
+<span class="lineNum">      37 </span>            :     eph_i t2i = {{334,  1, 2018, 1, 0, 1, 36, 1,  3, 16300, 6},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      38 </span>            :                  {960,  3, 2018, 1, 1, 2, 51, 1,  4, 1280,  6},
+<span class="lineNum">      39 </span>            :                  {1366, 1, 2018, 1, 1, 2, 92, 1,  0, -1,    1},  // Esta no: Hotel
+<span class="lineNum">      40 </span>            :                  {960,  2, 2018, 1, 0, 2, 20, 1,  3, 7000,  1},
+<span class="lineNum">      41 </span>            :                  {960,  1, 2018, 1, 0, 2, 19, 1,  0, 0,     6},
+<span class="lineNum">      42 </span><span class="lineCov">          4 :                  {1388, 1, 2018, 1, 0, 1, 67, 1,  3, 20000, 6}}; // Esta no: menos 500</span>
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span><span class="lineCov">          2 :     EXPECT_EQ( true, creceElTeleworkingEnCiudadesGrandes(t1h, t1i, t2h, t2i) );</span>
+<span class="lineNum">      45 </span><span class="lineCov">          2 : }</span>
+<a name="46"><span class="lineNum">      46 </span>            : </a>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineCov">         10 : TEST(creceElTeleworkingEnCiudadesGrandesTEST, nocrece) {</span>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : //                                   +500 Tipo  Lugar para trabajar
+<span class="lineNum">      51 </span>            : //                                     v  v        v
+<span class="lineNum">      52 </span>            :     eph_h t1h = {{334,  2015, 1, 1, 2, 1, 1, 3, 1, 2},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      53 </span>            :                  {960,  2015, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">      54 </span>            :                  {1366, 2015, 1, 2, 5, 1, 3, 3, 2, 1},  // Esta no: Hotel
+<span class="lineNum">      55 </span><span class="lineCov">          4 :                  {1388, 2015, 1, 3, 4, 0, 1, 2, 2, 1}}; // Esta no: menos 500</span>
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : //                                                      Ubicación
+<span class="lineNum">      58 </span>            : //                                                          v
+<span class="lineNum">      59 </span>            :     eph_i t1i = {{334,  1, 2015, 1, 0, 1, 36, 1,  3, 16300, 1},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      60 </span>            :                  {960,  3, 2015, 1, 1, 2, 51, 1,  4, 1280,  1},
+<span class="lineNum">      61 </span>            :                  {1366, 1, 2015, 1, 1, 2, 92, 1,  0, -1,    1},  // Esta no: Hotel
+<span class="lineNum">      62 </span>            :                  {960,  2, 2015, 1, 0, 2, 20, 1,  3, 7000,  1},
+<span class="lineNum">      63 </span>            :                  {960,  1, 2015, 1, 0, 2, 19, 1,  0, 0,     6},
+<span class="lineNum">      64 </span><span class="lineCov">          4 :                  {1388, 1, 2015, 1, 0, 1, 67, 1,  3, 20000, 6}}; // Esta no: menos 500</span>
+<span class="lineNum">      65 </span>            : 
+<span class="lineNum">      66 </span>            : //                                   +500 Tipo  Lugar para trabajar
+<span class="lineNum">      67 </span>            : //                                     v  v        v
+<span class="lineNum">      68 </span>            :     eph_h t2h = {{334,  2017, 1, 1, 2, 1, 1, 3, 1, 2},  
+<span class="lineNum">      69 </span>            :                  {960,  2017, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">      70 </span>            :                  {1366, 2017, 1, 2, 5, 1, 3, 3, 2, 1},  
+<span class="lineNum">      71 </span><span class="lineCov">          4 :                  {1388, 2017, 1, 3, 4, 0, 1, 2, 2, 1}}; </span>
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : //                                                      Ubicación
+<span class="lineNum">      74 </span>            : //                                                          v
+<span class="lineNum">      75 </span>            :     eph_i t2i = {{334,  1, 2017, 1, 0, 1, 36, 1,  3, 16300, 1},  
+<span class="lineNum">      76 </span>            :                  {960,  3, 2017, 1, 1, 2, 51, 1,  4, 1280,  2},
+<span class="lineNum">      77 </span>            :                  {1366, 1, 2017, 1, 1, 2, 92, 1,  0, -1,    1},  
+<span class="lineNum">      78 </span>            :                  {960,  2, 2017, 1, 0, 2, 20, 1,  3, 7000,  1},
+<span class="lineNum">      79 </span>            :                  {960,  1, 2017, 1, 0, 2, 19, 1,  0, 0,     1},
+<span class="lineNum">      80 </span><span class="lineCov">          4 :                  {1388, 1, 2017, 1, 0, 1, 67, 1,  3, 20000, 1}}; </span>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">          2 :     EXPECT_EQ( false, creceElTeleworkingEnCiudadesGrandes(t1h, t1i, t2h, t2i) );</span>
+<span class="lineNum">      83 </span><span class="lineCov">          2 : }</span>
+<a name="84"><span class="lineNum">      84 </span>            : </a>
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span><span class="lineCov">         10 : TEST(creceElTeleworkingEnCiudadesGrandesTEST, eph2016a2018) {</span>
+<span class="lineNum">      87 </span><span class="lineCov">          4 :     eph_h t1h;</span>
+<span class="lineNum">      88 </span><span class="lineCov">          4 :     eph_i t1i;</span>
+<span class="lineNum">      89 </span><span class="lineCov">          2 :     leerEncuesta ( &quot;eph_3c_2016_1000&quot;, t1h, t1i );</span>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span><span class="lineCov">          4 :     eph_h t2h;</span>
+<span class="lineNum">      92 </span><span class="lineCov">          4 :     eph_i t2i;</span>
+<span class="lineNum">      93 </span><span class="lineCov">          2 :     leerEncuesta ( &quot;eph_3c_2018_1000&quot;, t2h, t2i );</span>
+<span class="lineNum">      94 </span>            : 
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          2 :     EXPECT_EQ( true, creceElTeleworkingEnCiudadesGrandes(t1h, t1i, t2h, t2i) );</span></a>
+<span class="lineNum">      96 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">      97 </span><span class="lineCov">         10 : TEST(creceElTeleworkingEnCiudadesGrandesTEST, nadieTrabaja) {</span>
+<span class="lineNum">      98 </span>            :     eph_h t1h = {{334,  2017, 1, 1, 2, 1, 1, 3, 1, 2},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">      99 </span>            :                  {960,  2017, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">     100 </span>            :                  {1366, 2017, 1, 2, 5, 1, 3, 3, 2, 1},  // Esta no: Hotel
+<span class="lineNum">     101 </span><span class="lineCov">          4 :                  {1388, 2017, 1, 3, 4, 0, 1, 2, 2, 1}};</span>
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span>            :     eph_i t1i = {{334,  1, 2017, 1, 0, 1, 36, 0,  3, 16300, 1},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">     104 </span>            :                  {960,  3, 2017, 1, 1, 2, 51, 0,  4, 1280,  1},
+<span class="lineNum">     105 </span>            :                  {1366, 1, 2017, 1, 1, 2, 92, 0,  0, -1,    1},  // Esta no: Hotel
+<span class="lineNum">     106 </span>            :                  {960,  2, 2017, 1, 0, 2, 20, 0,  3, 7000,  1},
+<span class="lineNum">     107 </span>            :                  {960,  1, 2017, 1, 0, 2, 19, 0,  0, 0,     6},
+<span class="lineNum">     108 </span><span class="lineCov">          4 :                  {1388, 1, 2017, 1, 0, 1, 67, 0,  3, 20000, 6}};</span>
+<span class="lineNum">     109 </span>            : 
+<span class="lineNum">     110 </span>            :     eph_h t2h = {{334,  2018, 1, 1, 2, 1, 1, 3, 1, 2},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">     111 </span>            :                  {960,  2018, 1, 1, 1, 1, 1, 4, 1, 1},
+<span class="lineNum">     112 </span>            :                  {1366, 2018, 1, 2, 5, 1, 3, 3, 2, 1},  // Esta no: Hotel
+<span class="lineNum">     113 </span><span class="lineCov">          4 :                  {1388, 2018, 1, 3, 4, 0, 1, 2, 2, 1}};</span>
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span>            :     eph_i t2i = {{334,  1, 2018, 1, 0, 1, 36, 0,  3, 16300, 6},  // Esta no: Sin lugar para trabajar
+<span class="lineNum">     116 </span>            :                  {960,  3, 2018, 1, 1, 2, 51, 0,  4, 1280,  6},
+<span class="lineNum">     117 </span>            :                  {1366, 1, 2018, 1, 1, 2, 92, 0,  0, -1,    1},  // Esta no: Hotel
+<span class="lineNum">     118 </span>            :                  {960,  2, 2018, 1, 0, 2, 20, 0,  3, 7000,  1},
+<span class="lineNum">     119 </span>            :                  {960,  1, 2018, 1, 0, 2, 19, 0,  0, 0,     6},
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">          4 :                  {1388, 1, 2018, 1, 0, 1, 67, 0,  3, 20000, 6}};</span></a>
+<span class="lineNum">     121 </span><span class="lineCov">          2 :     EXPECT_EQ( false, creceElTeleworkingEnCiudadesGrandes(t1h, t1i, t2h, t2i));</span>
+<span class="lineNum">     122 </span><span class="lineCov">          8 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

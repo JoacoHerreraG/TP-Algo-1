@@ -1,0 +1,656 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - /home/mdemaria/tpi/auxiliares.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../index.html">top level</a> - <a href="index.html">home/mdemaria/tpi</a> - auxiliares.cpp<span style="font-size: 80%;"> (source / <a href="auxiliares.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">294</td>
+            <td class="headerCovTableEntry">302</td>
+            <td class="headerCovTableEntryHi">97.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-06-10 09:56:00</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">63</td>
+            <td class="headerCovTableEntry">63</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : //</a>
+<span class="lineNum">       2 </span>            : // Created by Ralo on 14/04/2019.
+<span class="lineNum">       3 </span>            : //
+<span class="lineNum">       4 </span>            : #include &quot;definiciones.h&quot;
+<span class="lineNum">       5 </span>            : #include &quot;auxiliares.h&quot;
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : 
+<span class="lineNum">       9 </span>            : 
+<span class="lineNum">      10 </span>            : //Auxiliares para esEncuestaValida
+<span class="lineNum">      11 </span>            : 
+<span class="lineNum">      12 </span>            : 
+<a name="13"><span class="lineNum">      13 </span>            : </a>
+<span class="lineNum">      14 </span>            : 
+<span class="lineNum">      15 </span><span class="lineCov">        105 : bool vacia(vector&lt;vector&lt;int&gt; &gt; &amp;encuesta) {</span>
+<span class="lineNum">      16 </span><span class="lineCov">        105 :     bool size = encuesta.size() == 0;</span>
+<span class="lineNum">      17 </span><span class="lineCov">        105 :     return size;</span>
+<a name="18"><span class="lineNum">      18 </span>            : }</a>
+<span class="lineNum">      19 </span>            : 
+<span class="lineNum">      20 </span><span class="lineCov">        102 : bool esMatriz(vector&lt;vector&lt;int&gt; &gt; encuesta) {</span>
+<span class="lineNum">      21 </span><span class="lineCov">        576 :     for (int i = 0; i &lt; encuesta.size(); ++i) {</span>
+<span class="lineNum">      22 </span><span class="lineCov">        477 :         if (encuesta[0].size() != encuesta[i].size()) {</span>
+<span class="lineNum">      23 </span><span class="lineCov">          3 :             return false;</span>
+<span class="lineNum">      24 </span>            :         }
+<span class="lineNum">      25 </span>            :     }
+<span class="lineNum">      26 </span><span class="lineCov">         99 :     return true;</span>
+<a name="27"><span class="lineNum">      27 </span>            : }</a>
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span><span class="lineCov">         48 : bool cantidadCorrectaDeColumnasI(eph_i &amp;ti) {</span>
+<span class="lineNum">      30 </span><span class="lineCov">         48 :     return ti[0].size() == 11;</span>
+<a name="31"><span class="lineNum">      31 </span>            : }</a>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">         48 : bool cantidadCorrectaDeColumnasH(eph_h &amp;th) {</span>
+<span class="lineNum">      34 </span><span class="lineCov">         48 :     return th[0].size() == 10;</span>
+<a name="35"><span class="lineNum">      35 </span>            : }</a>
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span><span class="lineCov">        327 : bool hayHogarConCodigo(eph_h &amp;th, int c) {</span>
+<span class="lineNum">      38 </span><span class="lineCov">       1293 :     bool existe = false;</span>
+<span class="lineNum">      39 </span><span class="lineCov">       1293 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">      40 </span><span class="lineCov">        327 :         if (th[i][HOGCODUSU] == c) {</span>
+<span class="lineNum">      41 </span>            :             existe = true;
+<span class="lineNum">      42 </span>            :         }
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :     }</span>
+<a name="44"><span class="lineNum">      44 </span>            :     return existe;</a>
+<span class="lineNum">      45 </span>            : }
+<span class="lineNum">      46 </span><span class="lineCov">         48 : </span>
+<span class="lineNum">      47 </span><span class="lineCov">        375 : bool hayIndividuosSinHogares(eph_i &amp;ti, eph_h &amp;th) {</span>
+<span class="lineNum">      48 </span><span class="lineCov">        327 :     bool existen = false;</span>
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :     for (int i = 0; i &lt; ti.size(); ++i) {</span>
+<span class="lineNum">      50 </span>            :         if (!hayHogarConCodigo(th, ti[i][INDCODUSU])) {
+<span class="lineNum">      51 </span>            :             existen = true;
+<span class="lineNum">      52 </span><span class="lineCov">         48 :         }</span>
+<a name="53"><span class="lineNum">      53 </span>            :     }</a>
+<span class="lineNum">      54 </span>            :     return existen;
+<span class="lineNum">      55 </span><span class="lineCov">        141 : }</span>
+<span class="lineNum">      56 </span><span class="lineCov">       1086 : </span>
+<span class="lineNum">      57 </span><span class="lineCov">       1083 : bool hayIndividuoConCodigo(eph_i &amp;ti, int c) {</span>
+<span class="lineNum">      58 </span><span class="lineCov">        138 :     for (int i = 0; i &lt; ti.size(); ++i) {</span>
+<span class="lineNum">      59 </span>            :         if (ti[i][INDCODUSU] == c) {
+<span class="lineNum">      60 </span>            :             return true;
+<span class="lineNum">      61 </span><span class="lineCov">          3 :         }</span>
+<a name="62"><span class="lineNum">      62 </span>            :     }</a>
+<span class="lineNum">      63 </span>            :     return false;
+<span class="lineNum">      64 </span><span class="lineCov">         48 : }</span>
+<span class="lineNum">      65 </span><span class="lineCov">        186 : </span>
+<span class="lineNum">      66 </span><span class="lineCov">        141 : bool hayHogaresSinIndividuos(eph_i &amp;ti, eph_h &amp;th) {</span>
+<span class="lineNum">      67 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">      68 </span>            :         if (!hayIndividuoConCodigo(ti, th[i][HOGCODUSU])) {
+<span class="lineNum">      69 </span>            :             return true;
+<span class="lineNum">      70 </span><span class="lineCov">         45 :         }</span>
+<a name="71"><span class="lineNum">      71 </span>            :     }</a>
+<span class="lineNum">      72 </span>            :     return false;
+<span class="lineNum">      73 </span><span class="lineCov">       3705 : }</span>
+<span class="lineNum">      74 </span><span class="lineCov">       3705 : </span>
+<a name="75"><span class="lineNum">      75 </span>            : bool mismoCodusuYComponente(individuo a, individuo b) {</a>
+<span class="lineNum">      76 </span>            :     return (a[INDCODUSU] == b[INDCODUSU] &amp;&amp; a[COMPONENTE] == b[COMPONENTE]);
+<span class="lineNum">      77 </span><span class="lineCov">         45 : }</span>
+<span class="lineNum">      78 </span><span class="lineCov">         45 : </span>
+<span class="lineNum">      79 </span><span class="lineCov">        681 : bool hayRepetidosI(eph_i &amp;ti) {</span>
+<span class="lineNum">      80 </span><span class="lineCov">       4023 :     int i = 0;</span>
+<span class="lineNum">      81 </span><span class="lineCov">       3705 :     while (i &lt; ti.size()) {</span>
+<span class="lineNum">      82 </span><span class="lineCov">          3 :         for (int j = i + 1; j &lt; ti.size(); ++j) {</span>
+<span class="lineNum">      83 </span>            :             if (mismoCodusuYComponente(ti[i], ti[j])) {
+<span class="lineNum">      84 </span>            :                 return true;
+<span class="lineNum">      85 </span><span class="lineCov">        318 :             }</span>
+<span class="lineNum">      86 </span>            :         }
+<span class="lineNum">      87 </span><span class="lineCov">         42 :         i++;</span>
+<a name="88"><span class="lineNum">      88 </span>            :     }</a>
+<span class="lineNum">      89 </span>            :     return false;
+<span class="lineNum">      90 </span><span class="lineCov">         42 : }</span>
+<span class="lineNum">      91 </span><span class="lineCov">         42 : </span>
+<span class="lineNum">      92 </span><span class="lineCov">        294 : bool hayRepetidosH(eph_h &amp;th) {</span>
+<span class="lineNum">      93 </span><span class="lineCov">        495 :     int i = 0;</span>
+<span class="lineNum">      94 </span><span class="lineCov">        369 :     while (i &lt; th.size()) {</span>
+<span class="lineNum">      95 </span><span class="lineCov">          3 :         for (int j = i + 1; j &lt; th.size(); ++j) {</span>
+<span class="lineNum">      96 </span>            :             if (th[i][HOGCODUSU] == th[j][HOGCODUSU]) {
+<span class="lineNum">      97 </span>            :                 return true;
+<span class="lineNum">      98 </span><span class="lineCov">        126 :             }</span>
+<span class="lineNum">      99 </span>            :         }
+<span class="lineNum">     100 </span><span class="lineCov">         39 :         i++;</span>
+<a name="101"><span class="lineNum">     101 </span>            :     }</a>
+<span class="lineNum">     102 </span>            :     return false;
+<span class="lineNum">     103 </span><span class="lineCov">         39 : }</span>
+<span class="lineNum">     104 </span><span class="lineCov">        315 : </span>
+<span class="lineNum">     105 </span><span class="lineCov">        276 : bool mismoAnioYTrimestre(eph_i &amp;ti, eph_h &amp;th) {</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :     for (int i = 1; i &lt; ti.size(); ++i) {</span>
+<span class="lineNum">     107 </span>            :         if (ti[0][INDANIO] != ti[i][INDANIO] &amp;&amp; ti[0][INDTRIMESTRE] != ti[i][INDTRIMESTRE]) {
+<span class="lineNum">     108 </span>            :             return false;
+<span class="lineNum">     109 </span><span class="lineCov">        126 :         }</span>
+<span class="lineNum">     110 </span><span class="lineCov">         87 :     }</span>
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :     for (int j = 1; j &lt; th.size(); ++j) {</span>
+<span class="lineNum">     112 </span>            :         if (th[0][HOGANIO] != th[j][HOGANIO] &amp;&amp; th[0][HOGTRIMESTRE] != th[j][HOGTRIMESTRE]) {
+<span class="lineNum">     113 </span>            :             return false;
+<span class="lineNum">     114 </span><span class="lineCov">         39 :         }</span>
+<a name="115"><span class="lineNum">     115 </span>            :     }</a>
+<span class="lineNum">     116 </span>            :     return (ti[0][INDANIO] == th[0][HOGANIO] &amp;&amp; ti[0][INDTRIMESTRE] == th[0][HOGTRIMESTRE]);
+<span class="lineNum">     117 </span><span class="lineCov">    1969231 : }</span>
+<span class="lineNum">     118 </span><span class="lineCov">    1969231 : </span>
+<a name="119"><span class="lineNum">     119 </span>            : bool esSuHogar(hogar &amp;h, individuo &amp;i) {</a>
+<span class="lineNum">     120 </span>            :     return (h[HOGCODUSU] == i[INDCODUSU]);
+<span class="lineNum">     121 </span><span class="lineCov">        114 : }</span>
+<span class="lineNum">     122 </span><span class="lineCov">        114 : </span>
+<span class="lineNum">     123 </span><span class="lineCov">       2376 : int cantidadHabitantes(hogar &amp;h, eph_i &amp;ti) {</span>
+<span class="lineNum">     124 </span><span class="lineCov">       2262 :     int contador = 0;</span>
+<span class="lineNum">     125 </span><span class="lineCov">        303 :     for (int i = 0; i &lt; ti.size(); ++i) {</span>
+<span class="lineNum">     126 </span>            :         if (esSuHogar(h, ti[i])) {
+<span class="lineNum">     127 </span>            :             contador++;
+<span class="lineNum">     128 </span><span class="lineCov">        114 :         }</span>
+<a name="129"><span class="lineNum">     129 </span>            :     }</a>
+<span class="lineNum">     130 </span>            :     return contador;
+<span class="lineNum">     131 </span><span class="lineCov">         33 : }</span>
+<span class="lineNum">     132 </span><span class="lineCov">        144 : </span>
+<span class="lineNum">     133 </span><span class="lineCov">        114 : bool menosDe21MiembrosPorHogar(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     134 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">     135 </span>            :         if (cantidadHabitantes(th[i], ti) &gt;= 21) {
+<span class="lineNum">     136 </span>            :             return false;
+<span class="lineNum">     137 </span><span class="lineCov">         30 :         }</span>
+<a name="138"><span class="lineNum">     138 </span>            :     }</a>
+<span class="lineNum">     139 </span>            :     return true;
+<span class="lineNum">     140 </span><span class="lineCov">         30 : }</span>
+<span class="lineNum">     141 </span><span class="lineCov">        138 : </span>
+<span class="lineNum">     142 </span><span class="lineCov">        111 : bool cantidadValidaDormitorios(eph_h &amp;th) {</span>
+<span class="lineNum">     143 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">     144 </span>            :         if (th[i][IV2] &lt; th[i][II3]) {
+<span class="lineNum">     145 </span>            :             return false;
+<span class="lineNum">     146 </span><span class="lineCov">         27 :         }</span>
+<a name="147"><span class="lineNum">     147 </span>            :     }</a>
+<span class="lineNum">     148 </span>            :     return true;
+<span class="lineNum">     149 </span><span class="lineCov">         27 : }</span>
+<span class="lineNum">     150 </span><span class="lineCov">        261 : </span>
+<span class="lineNum">     151 </span><span class="lineCov">        237 : bool valoresEnRangoI(eph_i &amp;ti) {</span>
+<span class="lineNum">     152 </span><span class="lineCov">          3 :     bool enRango = true;</span>
+<span class="lineNum">     153 </span>            :     for (int i = 0; i &lt; ti.size(); ++i) {
+<span class="lineNum">     154 </span>            :         if (!individuoValido(ti[i])) {
+<span class="lineNum">     155 </span><span class="lineCov">         24 :             enRango = false;</span>
+<a name="156"><span class="lineNum">     156 </span>            :         }</a>
+<span class="lineNum">     157 </span>            :     }
+<span class="lineNum">     158 </span><span class="lineCov">        237 :     return enRango;</span>
+<span class="lineNum">     159 </span><span class="lineCov">        708 : }</span>
+<span class="lineNum">     160 </span><span class="lineCov">        702 : </span>
+<span class="lineNum">     161 </span><span class="lineCov">        702 : bool individuoValido(individuo &amp;i) {</span>
+<span class="lineNum">     162 </span><span class="lineCov">        687 :     return (i[INDCODUSU] &gt; 0 &amp;&amp; i[COMPONENTE] &gt; 0 &amp;&amp; (0 &lt; i[INDTRIMESTRE] &amp;&amp; i[INDTRIMESTRE] &lt;= 4) &amp;&amp;</span>
+<a name="163"><span class="lineNum">     163 </span>            :             (0 &lt; i[CH4] &amp;&amp; i[CH4] &lt;= 2) &amp;&amp; i[CH6] &gt; 0 &amp;&amp; (i[NIVEL_ED] == 0 || i[NIVEL_ED] == 1) &amp;&amp;</a>
+<span class="lineNum">     164 </span>            :             (-1 &lt;= i[ESTADO] &amp;&amp; i[ESTADO] &lt;= 1) &amp;&amp; (0 &lt;= i[CAT_OCUP] &amp;&amp; i[CAT_OCUP] &lt;= 4) &amp;&amp;
+<span class="lineNum">     165 </span><span class="lineCov">         24 :             (-1 == i[p47T] || 0 &lt;= i[p47T]) &amp;&amp; (0 &lt; i[PP04G] &amp;&amp; i[PP04G] &lt;= 10));</span>
+<span class="lineNum">     166 </span><span class="lineCov">        129 : }</span>
+<span class="lineNum">     167 </span><span class="lineCov">        105 : </span>
+<span class="lineNum">     168 </span><span class="lineNoCov">          0 : bool valoresEnRangoH(eph_h &amp;th) {</span>
+<span class="lineNum">     169 </span>            :     bool enRango = true;
+<span class="lineNum">     170 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {
+<span class="lineNum">     171 </span><span class="lineCov">         24 :         if (!hogarValido(th[i])) {</span>
+<a name="172"><span class="lineNum">     172 </span>            :             enRango = false;</a>
+<span class="lineNum">     173 </span>            :         }
+<span class="lineNum">     174 </span><span class="lineCov">        105 :     }</span>
+<span class="lineNum">     175 </span><span class="lineCov">        315 :     return enRango;</span>
+<span class="lineNum">     176 </span><span class="lineCov">        315 : }</span>
+<span class="lineNum">     177 </span><span class="lineCov">        315 : </span>
+<a name="178"><span class="lineNum">     178 </span>            : bool hogarValido(hogar &amp;h) {</a>
+<span class="lineNum">     179 </span>            :     return (h[HOGCODUSU] &gt; 0 &amp;&amp; (h[HOGTRIMESTRE] &gt; 0 &amp;&amp; h[HOGTRIMESTRE] &lt;= 4) &amp;&amp; (h[II7] &gt; 0 &amp;&amp; h[II7] &lt;= 3) &amp;&amp;
+<span class="lineNum">     180 </span><span class="lineCov">         54 :             (0 &lt; h[REGION] &amp;&amp; h[REGION] &lt;= 6) &amp;&amp; (h[MAS_500] == 0 || h[MAS_500] == 1) &amp;&amp;</span>
+<span class="lineNum">     181 </span><span class="lineCov">        207 :             (0 &lt; h[IV1] &amp;&amp; h[IV1] &lt;= 5) &amp;&amp; h[IV2] &gt; 0 &amp;&amp; h[II2] &gt;= 1 &amp;&amp; (h[II3] == 1 || h[II3] == 2));</span>
+<span class="lineNum">     182 </span><span class="lineCov">        141 : }</span>
+<span class="lineNum">     183 </span><span class="lineCov">        120 : </span>
+<span class="lineNum">     184 </span><span class="lineCov">         63 : bool esValida(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     185 </span><span class="lineCov">        219 :     return (!vacia(th) &amp;&amp; !vacia(ti) &amp;&amp; esMatriz(th) &amp;&amp; esMatriz(ti) &amp;&amp; cantidadCorrectaDeColumnasI(ti) &amp;&amp;</span>
+<span class="lineNum">     186 </span>            :             cantidadCorrectaDeColumnasH(th) &amp;&amp; !hayIndividuosSinHogares(ti, th) &amp;&amp; !hayHogaresSinIndividuos(ti, th) &amp;&amp;
+<span class="lineNum">     187 </span>            :             !hayRepetidosI(ti) &amp;&amp; !hayRepetidosH(th) &amp;&amp; mismoAnioYTrimestre(ti, th) &amp;&amp;
+<span class="lineNum">     188 </span>            :             menosDe21MiembrosPorHogar(th, ti) &amp;&amp;
+<span class="lineNum">     189 </span>            :             cantidadValidaDormitorios(th) &amp;&amp; valoresEnRangoI(ti) &amp;&amp; valoresEnRangoH(th));
+<span class="lineNum">     190 </span>            : }
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span>            : 
+<a name="194"><span class="lineNum">     194 </span>            : </a>
+<span class="lineNum">     195 </span>            : //Auxiliares para histHabitacional
+<span class="lineNum">     196 </span><span class="lineCov">         16 : </span>
+<span class="lineNum">     197 </span><span class="lineCov">         16 : </span>
+<span class="lineNum">     198 </span><span class="lineCov">         16 : </span>
+<span class="lineNum">     199 </span><span class="lineCov">      18708 : </span>
+<span class="lineNum">     200 </span><span class="lineCov">      18692 : int maxCantDeAmbientes(eph_h &amp;th, int region) {</span>
+<span class="lineNum">     201 </span><span class="lineCov">       4099 :     int l = th.size();</span>
+<span class="lineNum">     202 </span><span class="lineCov">         29 :     int max = 0;</span>
+<span class="lineNum">     203 </span>            :     for (int i = 0; i &lt; l; ++i) {
+<span class="lineNum">     204 </span><span class="lineCov">       2035 :         if (th[i][REGION] == region &amp;&amp; th[i][IV1] == 1) {</span>
+<span class="lineNum">     205 </span>            :             if (th[i][IV2] &gt; max) {
+<span class="lineNum">     206 </span>            :                 max = th[i][IV2];
+<span class="lineNum">     207 </span>            :             } else {
+<span class="lineNum">     208 </span><span class="lineCov">         16 :                 continue;</span>
+<a name="209"><span class="lineNum">     209 </span>            :             }</a>
+<span class="lineNum">     210 </span>            :         }
+<span class="lineNum">     211 </span><span class="lineCov">      26858 :     }</span>
+<span class="lineNum">     212 </span><span class="lineCov">      26858 :     return max;</span>
+<span class="lineNum">     213 </span>            : }
+<span class="lineNum">     214 </span>            : 
+<span class="lineNum">     215 </span>            : bool esCasa(hogar &amp;h) {
+<span class="lineNum">     216 </span>            :     return h[IV1] == 1;
+<span class="lineNum">     217 </span>            : }
+<span class="lineNum">     218 </span>            : 
+<span class="lineNum">     219 </span>            : 
+<span class="lineNum">     220 </span>            : 
+<a name="221"><span class="lineNum">     221 </span>            : </a>
+<span class="lineNum">     222 </span>            : //Auxiliares para laCasaEstaQuedandoChica
+<span class="lineNum">     223 </span><span class="lineCov">         72 : </span>
+<span class="lineNum">     224 </span><span class="lineCov">         72 : </span>
+<span class="lineNum">     225 </span><span class="lineCov">        936 : </span>
+<span class="lineNum">     226 </span><span class="lineCov">        864 : </span>
+<span class="lineNum">     227 </span><span class="lineCov">         42 : int cantHogaresValidos(eph_h &amp;th, eph_i &amp;ti, int region) {</span>
+<span class="lineNum">     228 </span>            :     int contadorHogares = 0;
+<span class="lineNum">     229 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {
+<span class="lineNum">     230 </span><span class="lineCov">         72 :         if (esHogarValido(th[i], region)) {</span>
+<a name="231"><span class="lineNum">     231 </span>            :             contadorHogares++;</a>
+<span class="lineNum">     232 </span>            :         }
+<span class="lineNum">     233 </span><span class="lineCov">         72 :     }</span>
+<span class="lineNum">     234 </span><span class="lineCov">         72 :     return contadorHogares;</span>
+<span class="lineNum">     235 </span><span class="lineCov">        936 : }</span>
+<span class="lineNum">     236 </span><span class="lineCov">        864 : </span>
+<span class="lineNum">     237 </span><span class="lineCov">         21 : int cantHogaresValidosConHC(eph_h &amp;th, eph_i &amp;ti, int region) {</span>
+<span class="lineNum">     238 </span>            :     int contadorHogaresHC = 0;
+<span class="lineNum">     239 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {
+<span class="lineNum">     240 </span><span class="lineCov">         72 :         if (esHogarValido(th[i], region) &amp;&amp; esHogarHC(th[i], ti)) {</span>
+<a name="241"><span class="lineNum">     241 </span>            :             contadorHogaresHC++;</a>
+<span class="lineNum">     242 </span>            :         }
+<span class="lineNum">     243 </span><span class="lineCov">         42 :     }</span>
+<span class="lineNum">     244 </span><span class="lineCov">         42 :     return contadorHogaresHC;</span>
+<span class="lineNum">     245 </span><span class="lineCov">       1890 : }</span>
+<span class="lineNum">     246 </span><span class="lineCov">       1848 : </span>
+<span class="lineNum">     247 </span><span class="lineCov">        126 : bool esHogarHC(hogar &amp;h, eph_i &amp;ti) {</span>
+<span class="lineNum">     248 </span>            :     int cantHabitantes = 0;
+<span class="lineNum">     249 </span>            :     for (int i = 0; i &lt; ti.size(); ++i) {
+<span class="lineNum">     250 </span><span class="lineCov">         42 :         if (h[HOGCODUSU] == ti[i][INDCODUSU]) {</span>
+<a name="251"><span class="lineNum">     251 </span>            :             cantHabitantes++;</a>
+<span class="lineNum">     252 </span>            :         }
+<span class="lineNum">     253 </span><span class="lineCov">       1728 :     }</span>
+<span class="lineNum">     254 </span><span class="lineCov">       1728 :     return (cantHabitantes &gt; h[II2] * 3);</span>
+<span class="lineNum">     255 </span>            : }
+<span class="lineNum">     256 </span>            : 
+<span class="lineNum">     257 </span>            : bool esHogarValido(hogar &amp;h, int region) {
+<span class="lineNum">     258 </span>            :     return (h[REGION] == region &amp;&amp; h[IV1] == 1 &amp;&amp; h[MAS_500] == 0);
+<span class="lineNum">     259 </span>            : }
+<span class="lineNum">     260 </span>            : 
+<span class="lineNum">     261 </span>            : 
+<span class="lineNum">     262 </span>            : 
+<a name="263"><span class="lineNum">     263 </span>            : </a>
+<span class="lineNum">     264 </span>            : //Auxiliares para creceElTeleworkingEnCiudadesGrandes
+<span class="lineNum">     265 </span><span class="lineCov">         18 : </span>
+<span class="lineNum">     266 </span><span class="lineCov">         18 : </span>
+<span class="lineNum">     267 </span><span class="lineCov">         18 : </span>
+<span class="lineNum">     268 </span><span class="lineCov">         18 : </span>
+<span class="lineNum">     269 </span><span class="lineCov">         14 : float proporcionTeleworking(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     270 </span>            :     float indTrabaja = (float) cantIndividuosQueTrabajan(th, ti);
+<span class="lineNum">     271 </span><span class="lineCov">          4 :     float indTrabajaHog = (float) cantIndividuosTrabajandoEnSuVivienda(th, ti);</span>
+<span class="lineNum">     272 </span>            :     if (indTrabaja &gt; 0) {
+<a name="273"><span class="lineNum">     273 </span>            :         return (indTrabajaHog / indTrabaja);</a>
+<span class="lineNum">     274 </span>            :     } else {
+<span class="lineNum">     275 </span><span class="lineCov">         18 :         return 0;</span>
+<span class="lineNum">     276 </span><span class="lineCov">         18 :     }</span>
+<span class="lineNum">     277 </span><span class="lineCov">       6368 : }</span>
+<span class="lineNum">     278 </span><span class="lineCov">       6350 : </span>
+<span class="lineNum">     279 </span><span class="lineCov">       1234 : int cantIndividuosQueTrabajan(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     280 </span>            :     int contador = 0;
+<span class="lineNum">     281 </span>            :     for (int i = 0; i &lt; ti.size(); ++i) {
+<span class="lineNum">     282 </span><span class="lineCov">         18 :         if (trabaja(ti[i]) &amp;&amp; individuoEnHogarValido(ti[i], th)) {</span>
+<a name="283"><span class="lineNum">     283 </span>            :             contador++;</a>
+<span class="lineNum">     284 </span>            :         }
+<span class="lineNum">     285 </span><span class="lineCov">         18 :     }</span>
+<span class="lineNum">     286 </span><span class="lineCov">         18 :     return contador;</span>
+<span class="lineNum">     287 </span><span class="lineCov">       6368 : }</span>
+<span class="lineNum">     288 </span><span class="lineCov">       6350 : </span>
+<span class="lineNum">     289 </span><span class="lineCov">         17 : int cantIndividuosTrabajandoEnSuVivienda(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     290 </span>            :     int contador = 0;
+<span class="lineNum">     291 </span>            :     for (int i = 0; i &lt; ti.size(); ++i) {
+<span class="lineNum">     292 </span><span class="lineCov">         18 :         if (trabaja(ti[i]) &amp;&amp; trabajaEnSuVivienda(ti[i], th) &amp;&amp; individuoEnHogarValido(ti[i], th)) {</span>
+<a name="293"><span class="lineNum">     293 </span>            :             contador++;</a>
+<span class="lineNum">     294 </span>            :         }
+<span class="lineNum">     295 </span><span class="lineCov">       2699 :     }</span>
+<span class="lineNum">     296 </span><span class="lineCov">       2699 :     return contador;</span>
+<span class="lineNum">     297 </span><span class="lineCov">       2699 : }</span>
+<a name="298"><span class="lineNum">     298 </span>            : </a>
+<span class="lineNum">     299 </span>            : bool esDeCiudadGrande(individuo &amp;i, eph_h &amp;th) {
+<span class="lineNum">     300 </span><span class="lineCov">        141 :     int k = indiceDeHogar(i, th);</span>
+<span class="lineNum">     301 </span><span class="lineCov">        141 :     return (th[k][MAS_500] == 1);</span>
+<span class="lineNum">     302 </span><span class="lineCov">        141 : }</span>
+<a name="303"><span class="lineNum">     303 </span>            : </a>
+<span class="lineNum">     304 </span>            : bool suHogarTieneEspaciosReservadosParaElTrabajo(individuo &amp;i, eph_h &amp;th) {
+<span class="lineNum">     305 </span><span class="lineCov">       1274 :     int k = indiceDeHogar(i, th);</span>
+<span class="lineNum">     306 </span><span class="lineCov">       1274 :     return (tieneEspaciosReservadosParaElTrabajo(th[k]));</span>
+<span class="lineNum">     307 </span><span class="lineCov">       1274 : }</span>
+<a name="308"><span class="lineNum">     308 </span>            : </a>
+<span class="lineNum">     309 </span>            : bool suHogarEsCasaODepartamento(individuo &amp;i, eph_h &amp;th) {
+<span class="lineNum">     310 </span><span class="lineCov">       2699 :     int k = indiceDeHogar(i, th);</span>
+<span class="lineNum">     311 </span><span class="lineCov">       2699 :     return esCasaODepartamento(th[k]);</span>
+<a name="312"><span class="lineNum">     312 </span>            : }</a>
+<span class="lineNum">     313 </span>            : 
+<span class="lineNum">     314 </span><span class="lineCov">       2665 : bool individuoEnHogarValido(individuo &amp;i, eph_h &amp;th) {</span>
+<span class="lineNum">     315 </span><span class="lineCov">       2665 :     return (esDeCiudadGrande(i, th) &amp;&amp; suHogarEsCasaODepartamento(i, th));</span>
+<span class="lineNum">     316 </span>            : }
+<span class="lineNum">     317 </span>            : 
+<a name="318"><span class="lineNum">     318 </span>            : bool trabajaEnSuVivienda(individuo &amp;i, eph_h &amp;th) {</a>
+<span class="lineNum">     319 </span>            :     return (realizaSusTareasEnEsteHogar(i) &amp;&amp; suHogarTieneEspaciosReservadosParaElTrabajo(i, th));
+<span class="lineNum">     320 </span><span class="lineCov">       4114 : }</span>
+<span class="lineNum">     321 </span><span class="lineCov">       4114 : </span>
+<span class="lineNum">     322 </span><span class="lineCov">    3929824 : // j no puede llegar a estar fuera de rango porque la encuesta es válida.</span>
+<span class="lineNum">     323 </span><span class="lineCov">    1962855 : </span>
+<span class="lineNum">     324 </span>            : int indiceDeHogar(individuo &amp;i, eph_h &amp;th) {
+<span class="lineNum">     325 </span><span class="lineCov">       4114 :     int j = 0;</span>
+<a name="326"><span class="lineNum">     326 </span>            :     while (not esSuHogar(th[j], i)) {</a>
+<span class="lineNum">     327 </span>            :         j++;
+<span class="lineNum">     328 </span><span class="lineCov">      12700 :     }</span>
+<span class="lineNum">     329 </span><span class="lineCov">      12700 :     return j;</span>
+<a name="330"><span class="lineNum">     330 </span>            : }</a>
+<span class="lineNum">     331 </span>            : 
+<span class="lineNum">     332 </span><span class="lineCov">       1274 : bool trabaja(individuo &amp;i) {</span>
+<span class="lineNum">     333 </span><span class="lineCov">       1274 :     return (i[ESTADO] == 1);</span>
+<a name="334"><span class="lineNum">     334 </span>            : }</a>
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span><span class="lineCov">       2665 : bool esCasaODepartamento(hogar &amp;h) {</span>
+<span class="lineNum">     337 </span><span class="lineCov">       2665 :     return (h[IV1] == 1 || h[IV1] == 2);</span>
+<a name="338"><span class="lineNum">     338 </span>            : }</a>
+<span class="lineNum">     339 </span>            : 
+<span class="lineNum">     340 </span><span class="lineCov">        141 : bool realizaSusTareasEnEsteHogar(individuo &amp;i) {</span>
+<span class="lineNum">     341 </span><span class="lineCov">        141 :     return (i[PP04G] == 6);</span>
+<span class="lineNum">     342 </span>            : }
+<span class="lineNum">     343 </span>            : 
+<span class="lineNum">     344 </span>            : bool tieneEspaciosReservadosParaElTrabajo(hogar &amp;h) {
+<span class="lineNum">     345 </span>            :     return (h[II3] == 1);
+<span class="lineNum">     346 </span>            : }
+<span class="lineNum">     347 </span>            : 
+<span class="lineNum">     348 </span>            : 
+<span class="lineNum">     349 </span>            : 
+<a name="350"><span class="lineNum">     350 </span>            : </a>
+<span class="lineNum">     351 </span>            : //Auxiliares para ordenarRegionYCodusu
+<span class="lineNum">     352 </span><span class="lineCov">         15 : </span>
+<span class="lineNum">     353 </span><span class="lineCov">         15 : </span>
+<a name="354"><span class="lineNum">     354 </span>            : </a>
+<span class="lineNum">     355 </span>            : 
+<span class="lineNum">     356 </span><span class="lineCov">         42 : bool vivenJuntos(individuo &amp;i1, individuo &amp;i2) {</span>
+<span class="lineNum">     357 </span><span class="lineCov">         57 :     return (i1[INDCODUSU] == i2[INDCODUSU]);</span>
+<span class="lineNum">     358 </span><span class="lineCov">         57 : }</span>
+<span class="lineNum">     359 </span><span class="lineCov">         42 : </span>
+<span class="lineNum">     360 </span><span class="lineCov">         27 : bool hogarEstaAntes(hogar &amp;h1, hogar &amp;h2, eph_h &amp;th) {</span>
+<span class="lineNum">     361 </span>            :     for (int i = 0; i &lt; th.size() - 1; ++i) {
+<span class="lineNum">     362 </span>            :         for (int j = i + 1; j &lt; th.size(); ++j) {
+<span class="lineNum">     363 </span>            :             if (th[i] == h1 &amp;&amp; th[j] == h2) {
+<span class="lineNum">     364 </span><span class="lineCov">         15 :                 return true;</span>
+<a name="365"><span class="lineNum">     365 </span>            :             }</a>
+<span class="lineNum">     366 </span>            :         }
+<span class="lineNum">     367 </span><span class="lineCov">         42 :     }</span>
+<span class="lineNum">     368 </span><span class="lineCov">         84 :     return false;</span>
+<span class="lineNum">     369 </span><span class="lineCov">         84 : }</span>
+<span class="lineNum">     370 </span><span class="lineCov">        126 : </span>
+<span class="lineNum">     371 </span><span class="lineCov">         84 : bool suHogarEstaAntes(individuo &amp;i1, individuo &amp;i2, eph_h &amp;th) {</span>
+<span class="lineNum">     372 </span><span class="lineCov">         42 :     hogar h1 = {};</span>
+<span class="lineNum">     373 </span>            :     hogar h2 = {};
+<span class="lineNum">     374 </span><span class="lineCov">         84 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">     375 </span><span class="lineCov">         42 :         if (i1[INDCODUSU] == th[i][HOGCODUSU]) {</span>
+<span class="lineNum">     376 </span>            :             h1 = th[i];
+<span class="lineNum">     377 </span>            :         }
+<span class="lineNum">     378 </span><span class="lineCov">         84 :         if (i2[INDCODUSU] == th[i][HOGCODUSU]) {</span>
+<a name="379"><span class="lineNum">     379 </span>            :             h2 = th[i];</a>
+<span class="lineNum">     380 </span>            :         }
+<span class="lineNum">     381 </span><span class="lineCov">          9 :     }</span>
+<span class="lineNum">     382 </span><span class="lineCov">         24 :     return (hogarEstaAntes(h1, h2, th));</span>
+<span class="lineNum">     383 </span><span class="lineCov">         57 : }</span>
+<span class="lineNum">     384 </span><span class="lineCov">         63 : </span>
+<span class="lineNum">     385 </span><span class="lineCov">         30 : bool estanOrdenadosPorCodusuDeHogarYComponente(eph_i &amp;ti, eph_h &amp;th) {</span>
+<span class="lineNum">     386 </span><span class="lineCov">          6 :     for (int i = 0; i &lt; ti.size() - 1; ++i) {</span>
+<span class="lineNum">     387 </span>            :         for (int j = i + 1; j &lt; ti.size(); ++j) {
+<span class="lineNum">     388 </span>            :             if (!(suHogarEstaAntes(ti[i], ti[j], th) ||
+<span class="lineNum">     389 </span>            :                   (vivenJuntos(ti[i], ti[j]) &amp;&amp; ti[i][COMPONENTE] &lt; ti[j][COMPONENTE]))) {
+<span class="lineNum">     390 </span><span class="lineCov">          3 :                 return false;</span>
+<a name="391"><span class="lineNum">     391 </span>            :             }</a>
+<span class="lineNum">     392 </span>            :         }
+<span class="lineNum">     393 </span><span class="lineCov">          6 :     }</span>
+<span class="lineNum">     394 </span><span class="lineCov">          6 :     return true;</span>
+<span class="lineNum">     395 </span><span class="lineCov">          6 : }</span>
+<span class="lineNum">     396 </span><span class="lineCov">         18 : </span>
+<span class="lineNum">     397 </span><span class="lineCov">          6 : bool estanOrdenadosPorRegionYCodusu(eph_h &amp;th) {</span>
+<span class="lineNum">     398 </span><span class="lineCov">          6 :     bool ordenados = true;</span>
+<span class="lineNum">     399 </span>            :     for (int i = 0; i &lt; th.size() - 1; ++i) {
+<span class="lineNum">     400 </span>            :         for (int j = i + 1; j &lt; th.size(); ++j) {
+<span class="lineNum">     401 </span>            :             if (!(th[i][REGION] &lt; th[j][REGION] ||
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :                   (th[i][REGION] == th[j][REGION] &amp;&amp; th[i][HOGCODUSU] &lt; th[j][HOGCODUSU]))) {</span>
+<a name="403"><span class="lineNum">     403 </span>            :                 ordenados = false;</a>
+<span class="lineNum">     404 </span>            :             }
+<span class="lineNum">     405 </span><span class="lineCov">          3 :         }</span>
+<span class="lineNum">     406 </span><span class="lineCov">          3 :     }</span>
+<span class="lineNum">     407 </span><span class="lineCov">          9 :     return ordenados;</span>
+<span class="lineNum">     408 </span><span class="lineCov">          6 : }</span>
+<span class="lineNum">     409 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">     410 </span>            : void ordenarHogPorReg(eph_h &amp;th) {
+<span class="lineNum">     411 </span>            :     int menorReg = 0;
+<span class="lineNum">     412 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<a name="413"><span class="lineNum">     413 </span><span class="lineCov">          3 :         if (th[i][REGION] &lt; th[menorReg][REGION]) {</span></a>
+<span class="lineNum">     414 </span>            :             menorReg = i;
+<span class="lineNum">     415 </span><span class="lineCov">          3 :         }</span>
+<span class="lineNum">     416 </span><span class="lineCov">          3 :     }</span>
+<span class="lineNum">     417 </span><span class="lineCov">          9 :     swap(th[menorReg], th[0]);</span>
+<span class="lineNum">     418 </span><span class="lineCov">          6 : }</span>
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 : </span>
+<span class="lineNum">     420 </span>            : void ordenarHogPorCod(eph_h &amp;th) {
+<span class="lineNum">     421 </span>            :     int menorCod = 0;
+<span class="lineNum">     422 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<a name="423"><span class="lineNum">     423 </span><span class="lineCov">          3 :         if (th[i][REGION] == th[menorCod][REGION] &amp;&amp; th[i][HOGCODUSU] &lt; th[menorCod][HOGCODUSU]) {</span></a>
+<span class="lineNum">     424 </span>            :             menorCod = i;
+<span class="lineNum">     425 </span><span class="lineCov">          3 :         }</span>
+<span class="lineNum">     426 </span><span class="lineCov">          9 :     }</span>
+<span class="lineNum">     427 </span><span class="lineCov">         24 :     swap(th[menorCod], th[0]);</span>
+<span class="lineNum">     428 </span><span class="lineCov">         18 : }</span>
+<span class="lineNum">     429 </span><span class="lineCov">         15 : </span>
+<span class="lineNum">     430 </span>            : void ordenarIndPorCodDeHog(eph_i &amp;ti, eph_h &amp;th) {
+<span class="lineNum">     431 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {
+<span class="lineNum">     432 </span>            :         for (int j = 0; j &lt; ti.size() - 1; ++j) {
+<a name="433"><span class="lineNum">     433 </span><span class="lineCov">          3 :             if (th[i][HOGCODUSU] != ti[j][INDCODUSU]) {</span></a>
+<span class="lineNum">     434 </span>            :                 swap(ti[j], ti[j + 1]);
+<span class="lineNum">     435 </span><span class="lineCov">          3 :             }</span>
+<span class="lineNum">     436 </span><span class="lineCov">         12 :         }</span>
+<span class="lineNum">     437 </span><span class="lineCov">          9 :     }</span>
+<span class="lineNum">     438 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">     439 </span>            : 
+<span class="lineNum">     440 </span>            : void ordenarIndPorComp(eph_i &amp;ti) {
+<span class="lineNum">     441 </span><span class="lineCov">          3 :     for (int i = 0; i &lt; ti.size() - 1; ++i) {</span>
+<span class="lineNum">     442 </span>            :         if (ti[i][INDCODUSU] == ti[i + 1][INDCODUSU] &amp;&amp; ti[i][COMPONENTE] &gt; ti[i + 1][COMPONENTE]) {
+<span class="lineNum">     443 </span>            :             swap(ti[i], ti[i + 1]);
+<span class="lineNum">     444 </span>            :         }
+<span class="lineNum">     445 </span>            :     }
+<span class="lineNum">     446 </span>            : }
+<span class="lineNum">     447 </span>            : 
+<a name="448"><span class="lineNum">     448 </span>            : //Auxiliares para muestraHomogenea</a>
+<span class="lineNum">     449 </span>            : 
+<span class="lineNum">     450 </span><span class="lineCov">         17 : // Fija dos índices; luego declara otro, l, y con k, variable de control, recorre.</span>
+<span class="lineNum">     451 </span><span class="lineCov">         17 : // Si la diferencia de ingresos de los primeros dos componentes de ingresos es la misma para el k-ésimo y el l-ésimo en algún momento,</span>
+<span class="lineNum">     452 </span><span class="lineCov">        220 : // significa que podemos agregar el k-ésimo a nuestra tira, ahora seguir comparando contra el último de la tira.</span>
+<span class="lineNum">     453 </span><span class="lineCov">       1082 : // k aumenta y eso está bien pues al estar ordenada por ingresos el vector, los únicos candidatos a poder ser metidos en la tira se encuentran más adelante.</span>
+<span class="lineNum">     454 </span><span class="lineCov">       1758 : </span>
+<span class="lineNum">     455 </span><span class="lineCov">        879 : vector&lt;int&gt; solMaximalMuestraHomogenea(vector&lt;vector&lt;int&gt; &gt; &amp;ingresos) {</span>
+<span class="lineNum">     456 </span><span class="lineCov">       3791 :     vector&lt;int&gt; res = {};</span>
+<span class="lineNum">     457 </span><span class="lineCov">       2912 :     for (int i = 0; i &lt; ingresos.size(); ++i) {</span>
+<span class="lineNum">     458 </span><span class="lineCov">        309 :         for (int j = i + 1; j &lt; ingresos.size() &amp;&amp; ingresos[j][1] - ingresos[i][1] != 0; ++j) {</span>
+<span class="lineNum">     459 </span><span class="lineCov">        309 :             vector&lt;int&gt; aux{i, j};</span>
+<span class="lineNum">     460 </span>            :             int l = j;
+<span class="lineNum">     461 </span>            :             for (int k = j + 1; k &lt; ingresos.size(); ++k) {
+<span class="lineNum">     462 </span>            :                 if (ingresos[k][1] - ingresos[l][1] == ingresos[j][1] - ingresos[i][1]) {
+<span class="lineNum">     463 </span><span class="lineCov">        879 :                     aux.push_back(k);</span>
+<span class="lineNum">     464 </span><span class="lineCov">         30 :                     l = k;</span>
+<span class="lineNum">     465 </span>            : 
+<span class="lineNum">     466 </span>            :                 }
+<span class="lineNum">     467 </span>            :             }
+<span class="lineNum">     468 </span><span class="lineCov">         17 :             if (aux.size() &gt; res.size()) {</span>
+<span class="lineNum">     469 </span>            :                 res = aux;
+<a name="470"><span class="lineNum">     470 </span>            :             }</a>
+<span class="lineNum">     471 </span>            :         }
+<span class="lineNum">     472 </span><span class="lineCov">         17 :     }</span>
+<span class="lineNum">     473 </span><span class="lineCov">        203 :     return res;</span>
+<span class="lineNum">     474 </span><span class="lineCov">        186 : }</span>
+<span class="lineNum">     475 </span><span class="lineCov">       1321 : </span>
+<span class="lineNum">     476 </span><span class="lineCov">       1135 : </span>
+<span class="lineNum">     477 </span><span class="lineCov">        238 : void selectionSortEspecial(vector&lt;vector&lt;int&gt; &gt; &amp;ingresos) {</span>
+<span class="lineNum">     478 </span>            :     for (int i = 0; i &lt; ingresos.size() - 1; ++i) {
+<span class="lineNum">     479 </span>            :         int min = i;
+<span class="lineNum">     480 </span><span class="lineCov">        186 :         for (int j = i + 1; j &lt; ingresos.size(); ++j) {</span>
+<span class="lineNum">     481 </span>            :             if (ingresos[j][1] &lt; ingresos[min][1]) {
+<span class="lineNum">     482 </span><span class="lineCov">         17 :                 min = j;</span>
+<a name="483"><span class="lineNum">     483 </span>            :             }</a>
+<span class="lineNum">     484 </span>            :         }
+<span class="lineNum">     485 </span><span class="lineCov">        186 :         swapMH(ingresos, i, min);</span>
+<span class="lineNum">     486 </span><span class="lineCov">        372 :     }</span>
+<span class="lineNum">     487 </span><span class="lineCov">        186 : }</span>
+<span class="lineNum">     488 </span><span class="lineCov">        186 : </span>
+<a name="489"><span class="lineNum">     489 </span><span class="lineCov">        186 : </span></a>
+<span class="lineNum">     490 </span>            : void swapMH(vector&lt;vector&lt;int&gt; &gt; &amp;vec, int &amp;a, int &amp;b) {
+<span class="lineNum">     491 </span><span class="lineCov">         17 :     vector&lt;int&gt; aux = vec[a];</span>
+<span class="lineNum">     492 </span><span class="lineCov">         17 :     vec[a] = vec[b];</span>
+<span class="lineNum">     493 </span><span class="lineCov">        220 :     vec[b] = aux;</span>
+<span class="lineNum">     494 </span><span class="lineCov">        203 : }</span>
+<span class="lineNum">     495 </span>            : 
+<span class="lineNum">     496 </span><span class="lineCov">         17 : vector&lt;vector&lt;int&gt; &gt; listarIngresosDeHogares(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     497 </span>            :     vector&lt;vector&lt;int&gt; &gt; ingres;
+<span class="lineNum">     498 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {
+<span class="lineNum">     499 </span>            :         ingres.push_back({i, (int) ingresos(th[i], ti)});
+<span class="lineNum">     500 </span>            :     }
+<span class="lineNum">     501 </span>            :     return ingres;
+<span class="lineNum">     502 </span>            : }
+<a name="503"><span class="lineNum">     503 </span>            : </a>
+<span class="lineNum">     504 </span>            : 
+<span class="lineNum">     505 </span><span class="lineCov">          6 : //Auxiliares para corregirRegion</span>
+<span class="lineNum">     506 </span><span class="lineCov">         21 : </span>
+<span class="lineNum">     507 </span><span class="lineCov">         15 : </span>
+<span class="lineNum">     508 </span><span class="lineCov">          6 : </span>
+<span class="lineNum">     509 </span>            : 
+<span class="lineNum">     510 </span>            : void soloModificaRegionGBAaPampeana(eph_h &amp;th) {
+<span class="lineNum">     511 </span><span class="lineCov">          6 :     for (int i = 0; i &lt; th.size(); ++i) {</span>
+<span class="lineNum">     512 </span>            :         if (th[i][REGION] == 1) {
+<span class="lineNum">     513 </span>            :             th[i][REGION] = 5;
+<span class="lineNum">     514 </span>            :         }
+<span class="lineNum">     515 </span>            :     }
+<span class="lineNum">     516 </span>            : }
+<span class="lineNum">     517 </span>            : 
+<span class="lineNum">     518 </span>            : 
+<a name="519"><span class="lineNum">     519 </span>            : </a>
+<span class="lineNum">     520 </span>            : 
+<span class="lineNum">     521 </span><span class="lineCov">        246 : //Auxiliares para indiceGini</span>
+<span class="lineNum">     522 </span><span class="lineCov">        246 : </span>
+<span class="lineNum">     523 </span><span class="lineCov">       1605 : </span>
+<span class="lineNum">     524 </span><span class="lineCov">       1359 : </span>
+<span class="lineNum">     525 </span><span class="lineCov">        516 : </span>
+<span class="lineNum">     526 </span>            : float cantHab(hogar &amp;h, eph_i &amp;ti) {
+<span class="lineNum">     527 </span>            :     int contador = 0;
+<span class="lineNum">     528 </span><span class="lineCov">        246 :     for (int i = 0; i &lt; ti.size(); ++i) {</span>
+<a name="529"><span class="lineNum">     529 </span>            :         if (h[HOGCODUSU] == ti[i][INDCODUSU]) {</a>
+<span class="lineNum">     530 </span>            :             contador++;
+<span class="lineNum">     531 </span><span class="lineCov">        449 :         }</span>
+<span class="lineNum">     532 </span><span class="lineCov">        449 :     }</span>
+<span class="lineNum">     533 </span><span class="lineCov">       5439 :     return contador;</span>
+<span class="lineNum">     534 </span><span class="lineCov">       4990 : }</span>
+<span class="lineNum">     535 </span><span class="lineCov">        669 : </span>
+<span class="lineNum">     536 </span>            : float ingresos(hogar &amp;h, eph_i &amp;ti) {
+<span class="lineNum">     537 </span>            :     int contador = 0;
+<span class="lineNum">     538 </span><span class="lineCov">        449 :     for (int i = 0; i &lt; ti.size(); ++i) {</span>
+<a name="539"><span class="lineNum">     539 </span>            :         if (h[HOGCODUSU] == ti[i][INDCODUSU] &amp;&amp; ti[i][p47T] != -1) {</a>
+<span class="lineNum">     540 </span>            :             contador += ti[i][p47T];
+<span class="lineNum">     541 </span><span class="lineCov">        246 :         }</span>
+<span class="lineNum">     542 </span><span class="lineCov">        246 :     }</span>
+<a name="543"><span class="lineNum">     543 </span>            :     return contador;</a>
+<span class="lineNum">     544 </span>            : }
+<span class="lineNum">     545 </span><span class="lineCov">         90 : </span>
+<span class="lineNum">     546 </span><span class="lineCov">         90 : float ingresosPerCapitaEnHogar(hogar &amp;h, eph_i &amp;ti) {</span>
+<span class="lineNum">     547 </span><span class="lineCov">        270 :     return (ingresos(h, ti) / cantHab(h, ti));</span>
+<span class="lineNum">     548 </span><span class="lineCov">        180 : }</span>
+<span class="lineNum">     549 </span>            : 
+<span class="lineNum">     550 </span><span class="lineCov">         90 : float ingresosHasta(int n, eph_h &amp;th, eph_i &amp;ti) {</span>
+<a name="551"><span class="lineNum">     551 </span>            :     float contador = 0;</a>
+<span class="lineNum">     552 </span>            :     for (int i = 0; i &lt; n; ++i) {
+<span class="lineNum">     553 </span><span class="lineCov">         12 :         contador += ingresosPerCapitaEnHogar(th[i], ti);</span>
+<span class="lineNum">     554 </span><span class="lineCov">         12 :     }</span>
+<span class="lineNum">     555 </span><span class="lineCov">         42 :     return contador;</span>
+<span class="lineNum">     556 </span><span class="lineCov">         60 : }</span>
+<span class="lineNum">     557 </span><span class="lineCov">         30 : </span>
+<span class="lineNum">     558 </span>            : float integralDeIngresosObservados(eph_h &amp;th, eph_i &amp;ti) {
+<span class="lineNum">     559 </span><span class="lineCov">         12 :     float contador = 0;</span>
+<a name="560"><span class="lineNum">     560 </span>            :     for (int i = 0; i &lt; th.size(); ++i) {</a>
+<span class="lineNum">     561 </span>            :         contador += ((ingresosHasta(i, th, ti) / ingresosHasta(th.size(), th, ti)) +
+<span class="lineNum">     562 </span><span class="lineCov">         12 :                      (ingresosPerCapitaEnHogar(th[i], ti) / ingresosHasta(th.size(), th, ti)) / 2);</span>
+<span class="lineNum">     563 </span><span class="lineCov">         12 :     }</span>
+<span class="lineNum">     564 </span><span class="lineCov">         12 :     return contador / th.size();</span>
+<a name="565"><span class="lineNum">     565 </span>            : }</a>
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span><span class="lineCov">         12 : float areaObservada(eph_h &amp;th, eph_i &amp;ti) {</span>
+<span class="lineNum">     568 </span><span class="lineCov">         30 :     float areaIgualdadTotal = 0.5;</span>
+<span class="lineNum">     569 </span><span class="lineCov">         18 :     return areaIgualdadTotal - integralDeIngresosObservados(th, ti);</span>
+<span class="lineNum">     570 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     571 </span>            : 
+<a name="572"><span class="lineNum">     572 </span>            : bool tablaHogaresOrdenadaPorIngresosPerCapita(eph_h &amp;th, eph_i &amp;ti) {</a>
+<span class="lineNum">     573 </span><span class="lineCov">         12 :     bool ordenada = true;</span>
+<span class="lineNum">     574 </span><span class="lineCov">         45 :     for (int i = 0; i &lt; th.size() - 1; ++i) {</span>
+<span class="lineNum">     575 </span>            :         if (ingresosPerCapitaEnHogar(th[i], ti) &gt; ingresosPerCapitaEnHogar(th[i + 1], ti)) {
+<span class="lineNum">     576 </span>            :             ordenada = false;
+<span class="lineNum">     577 </span>            :         }
+<span class="lineNum">     578 </span>            :     }
+<span class="lineNum">     579 </span>            :     return ordenada;
+<span class="lineNum">     580 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
